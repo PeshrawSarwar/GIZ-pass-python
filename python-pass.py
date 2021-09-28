@@ -4,13 +4,16 @@ class Solution(object):
 
     @staticmethod
     def longest_palindromic(s: str):
-        # Square Matrix - length = length of the string
+        # Square Matrix - length = length of the string [False]
         matrix = [[False for i in range(len(s))] for i in range(len(s))]
         for i in range(len(s)):
-                matrix[i][i] = True
+            # major diagonal elements = True
+                matrix[i][i] = True 
         max_length = 1
         start = 0
+        # 2 to length of s+1
         for l in range(2,len(s)+1):
+            # 0 to to length of s-1+1
             for i in range(len(s)-l+1):
                 end = i+l
                 if l==2:
@@ -26,6 +29,7 @@ class Solution(object):
         return s[start:start+max_length]
 
 ob = Solution()
-print(ob.longest_palindromic("lagalabcd"))
+print(ob.longest_palindromic("lagalabcdnananana")) 
+# Output -> ananana
 
 
